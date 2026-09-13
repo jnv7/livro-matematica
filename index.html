@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<title>Matemática, Conceito a Conceito</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+  :root{
+    --quadro:#1F4D3A;
+    --quadro-light:#DCE7DE;
+    --laranja:#D97A34;
+    --laranja-light:#F6E4D3;
+    --giz:#E8B23D;
+    --paper:#FAF7F0;
+    --ink:#1F2421;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:#E9E4D8;
+    font-family:'Work Sans',sans-serif;
+    color:var(--ink);
+  }
+
+  /* ===================== FOLHA A4 ===================== */
+  .folha{
+    width:210mm;
+    height:297mm;
+    background:var(--paper);
+    position:relative;
+    margin:0 auto 22px auto;
+    box-shadow:0 4px 24px rgba(0,0,0,0.15);
+    padding:14mm 14mm 12mm 14mm;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* ===================== CAPA ===================== */
+  .capa{
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:var(--quadro);
+    color:var(--paper);
+  }
+  .capa .selo-grande{
+    width:132px;height:132px;
+    border:3px solid var(--giz);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:52px;margin-bottom:26px;
+  }
+  .capa h1{
+    font-family:'Fraunces',serif;font-weight:800;
+    font-size:46px;margin:0 0 10px 0;line-height:1.08;
+  }
+  .capa h2{
+    font-family:'Fraunces',serif;font-weight:500;font-style:italic;
+    font-size:19px;margin:0 0 40px 0;opacity:0.9;
+  }
+  .capa .subtitulo{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;
+    letter-spacing:2px;text-transform:uppercase;opacity:0.75;
+  }
+  .capa .colecao-linha{
+    margin-top:56px;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;opacity:0.6;
+  }
+  .capa .capa-qr{
+    margin-top:22px;display:flex;flex-direction:column;align-items:center;gap:8px;
+  }
+  .capa .capa-qr .qr-caixa{
+    background:var(--paper);padding:8px;border-radius:8px;line-height:0;
+  }
+  .capa .capa-url{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.5px;opacity:0.85;
+  }
+
+  /* ===================== SECÇÕES DE ABERTURA ===================== */
+  h2.titulo-secao{
+    font-family:'Fraunces',serif;font-size:26px;color:var(--quadro);
+    border-bottom:3px solid var(--quadro);padding-bottom:10px;margin:0 0 18px 0;
+  }
+  .intro-texto{font-size:14px;line-height:1.6;margin-bottom:18px;}
+  .intro-texto b{color:var(--quadro);}
+
+  .bloco-explicado{
+    display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;
+    padding:10px 12px;background:var(--quadro-light);border-radius:6px;
+  }
+  .bloco-explicado .num{
+    font-family:'Fraunces',serif;font-weight:700;font-size:20px;
+    color:var(--quadro);min-width:26px;
+  }
+  .bloco-explicado .txt b{display:block;font-size:13px;margin-bottom:2px;}
+  .bloco-explicado .txt span{font-size:12px;color:#444;line-height:1.4;}
+  .bloco-explicado .txt span b{display:inline;font-size:inherit;margin:0;color:var(--quadro);}
+
+  .notas-redacao{
+    margin-top:auto;padding:12px 14px;background:#f7f2e8;
+    border:1px solid #e2ddd0;border-radius:6px;
+  }
+  .notas-redacao h3{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:1.2px;
+    text-transform:uppercase;color:var(--laranja);margin:0 0 8px 0;
+  }
+  .notas-redacao p,.notas-redacao li{font-size:11px;line-height:1.45;color:#463e33;}
+  .notas-redacao ul{margin:6px 0 0 16px;padding:0;}
+  .notas-redacao li{margin-bottom:5px;}
+
+  /* ===== índice de temas ===== */
+  .indice-lista{margin-top:4px;display:flex;flex-direction:column;gap:2px;}
+  .indice-tema-item{
+    display:flex;align-items:baseline;gap:10px;padding:9px 6px;
+    border-bottom:1px dotted #cfc7b3;
+    text-decoration:none;color:inherit;border-radius:5px;
+    transition:background .12s;
+  }
+  .indice-tema-item:hover{background:var(--quadro-light);}
+  .indice-tema-item .n{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;
+    color:var(--laranja);min-width:22px;
+  }
+  .indice-tema-item .emoji{font-size:16px;min-width:20px;}
+  .indice-tema-item .corpo{flex:1;min-width:0;}
+  .indice-tema-item .titulo{font-family:'Fraunces',serif;font-weight:600;font-size:14px;}
+  .indice-tema-item .resumo{font-size:11.5px;color:#5a5145;line-height:1.35;margin-top:1px;}
+  .indice-tema-item .data{
+    font-family:'IBM Plex Mono',monospace;font-size:9px;color:#8a8272;
+    white-space:nowrap;
+  }
+  .indice-vazio{font-size:13px;color:#8a8272;font-style:italic;}
+
+  /* ===================== PÁGINAS DE TEMA (layout livre por tema) =====
+     Caixa de ferramentas visual comum a todas as páginas de tema.
+     Cada tema usa as peças que fizerem sentido para o conceito — não é
+     obrigatório usar todas, nem pela mesma ordem. */
+
+  .folha-tema{padding:16mm 16mm 12mm 16mm;}
+  .folha-tema:target{animation:chegada 1.1s ease-out;}
+  @keyframes chegada{
+    0%{box-shadow:0 4px 24px rgba(0,0,0,0.15), inset 0 0 0 3px var(--giz);}
+    100%{box-shadow:0 4px 24px rgba(0,0,0,0.15), inset 0 0 0 3px transparent;}
+  }
+
+  .tema-eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;
+    text-transform:uppercase;color:var(--laranja);margin-bottom:6px;
+  }
+  .tema-titulo{
+    font-family:'Fraunces',serif;font-weight:800;font-size:32px;
+    color:var(--quadro);margin:0 0 6px 0;line-height:1.05;
+  }
+  .tema-gancho{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+    font-size:14.5px;color:#4b4438;margin:0 0 16px 0;line-height:1.4;
+  }
+
+  .tema-texto{font-size:13px;line-height:1.62;margin-bottom:12px;}
+  .tema-texto b{color:var(--quadro);}
+
+  /* situação real / gancho do dia a dia */
+  .situacao{
+    background:var(--quadro-light);border-radius:8px;
+    padding:12px 14px;margin-bottom:14px;
+  }
+  .situacao .lbl{
+    display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
+    letter-spacing:1.2px;text-transform:uppercase;color:var(--quadro);
+    margin-bottom:6px;
+  }
+  .situacao p{font-size:13px;line-height:1.6;margin:0 0 8px 0;}
+  .situacao p:last-child{margin-bottom:0;}
+
+  /* experimenta — atividade prática, sem precisar de adulto */
+  .experimenta{
+    background:var(--laranja-light);border:1.5px solid var(--laranja);
+    border-radius:8px;padding:12px 14px;margin-bottom:14px;
+  }
+  .experimenta .lbl{
+    display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
+    letter-spacing:1.2px;text-transform:uppercase;color:#a85a1f;
+    margin-bottom:6px;
+  }
+  .experimenta p{font-size:12.5px;line-height:1.55;margin:0 0 6px 0;}
+  .experimenta ol{margin:6px 0 0 18px;padding:0;font-size:12.5px;line-height:1.55;}
+  .experimenta li{margin-bottom:4px;}
+
+  /* para recordar — frase curta, não é a definição formal */
+  .para-recordar{
+    display:flex;gap:10px;align-items:flex-start;
+    background:#fff;border:1.5px dashed var(--giz);border-radius:8px;
+    padding:10px 14px;margin-bottom:14px;
+  }
+  .para-recordar .lbl{
+    font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;
+    text-transform:uppercase;color:#a5791a;flex-shrink:0;padding-top:2px;
+  }
+  .para-recordar p{font-size:13px;line-height:1.5;margin:0;font-weight:600;}
+
+  /* curiosidade — facto real para guardar e contar */
+  .curiosidade-tema{
+    font-size:11.5px;line-height:1.45;color:#4b4438;font-style:italic;
+    border-left:2px solid var(--giz);padding-left:10px;margin-bottom:14px;
+  }
+  .curiosidade-tema b{font-style:normal;color:var(--quadro);}
+
+  /* nota formal — o nome/definição oficial, propositadamente pequena e no fim */
+  .nota-formal{
+    margin-top:auto;background:#f7f2e8;border:1px solid #e2ddd0;
+    border-radius:6px;padding:10px 12px;
+  }
+  .nota-formal .lbl{
+    font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;
+    text-transform:uppercase;color:#8a8272;display:block;margin-bottom:4px;
+  }
+  .nota-formal p{font-size:11px;line-height:1.5;color:#5a5145;margin:0;}
+
+  /* grelha do crivo de Eratóstenes — 10x10. Riscar a lápis no papel;
+     clicar no ecrã (a mesma grelha serve para as duas versões). */
+  .grelha-crivo{
+    display:grid;grid-template-columns:repeat(10,1fr);gap:2px;
+    margin:10px 0 10px 0;max-width:170mm;
+  }
+  .grelha-crivo .cel{
+    aspect-ratio:1/1;border:1px solid #d8cdb8;border-radius:3px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#3a352c;
+    background:#fff;user-select:none;
+  }
+  .grelha-crivo.interativa .cel{cursor:pointer;transition:background .1s,color .1s;}
+  .grelha-crivo.interativa .cel:hover{background:var(--laranja-light);border-color:var(--laranja);}
+  .grelha-crivo .cel.riscado{
+    background:#ece6d8;color:#b0a692;text-decoration:line-through;
+    border-color:#e2d9c4;
+  }
+  .grelha-crivo .cel.a-reagir{animation:pop .22s ease;}
+  @keyframes pop{
+    0%{transform:scale(1);}
+    45%{transform:scale(1.22);}
+    100%{transform:scale(1);}
+  }
+  .contagem b.a-reagir{display:inline-block;animation:pop .22s ease;}
+  .experimenta .rodape{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-top:2px;flex-wrap:wrap;
+  }
+  .experimenta .contagem{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#a85a1f;
+  }
+  .experimenta .contagem b{font-size:13px;}
+  .btn-limpar{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.5px;
+    background:#fff;border:1.5px solid var(--laranja);color:#a85a1f;
+    border-radius:5px;padding:4px 10px;cursor:pointer;
+  }
+  .btn-limpar:hover{background:var(--laranja);color:#fff;}
+  @media print{ .experimenta .dica-online{display:none;} }
+
+  /* folha em branco (verso da capa) */
+  .folha-branca{background:var(--paper);}
+
+  /* ===================== IMPRESSÃO ===================== */
+  @page{size:A4;margin:0;}
+  @media print{
+    body{background:#fff;}
+    .folha{
+      margin:0;box-shadow:none;
+      page-break-after:always;break-after:page;
+    }
+    .folha:last-child{page-break-after:auto;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== 1 · CAPA ===================== -->
+<div class="folha capa">
+  <div class="subtitulo">Uma coleção que cresce todas as semanas</div>
+  <div class="selo-grande">🧮</div>
+  <h1>Matemática,<br>Conceito a Conceito</h1>
+  <h2><span class="n-temas">1</span> conceito por semana, explicado a partir da vida real — sem decorar definições</h2>
+  <div class="colecao-linha">Feito em família · sem fins comerciais</div>
+  <div class="capa-qr">
+    <div class="qr-caixa" id="qr-capa"></div>
+    <div class="capa-url">jnvasconcelos.com/livro-matematica</div>
+  </div>
+</div>
+
+<!-- ===================== VERSO DA CAPA (em branco) ===================== -->
+<div class="folha folha-branca"></div>
+
+<!-- ===================== 2 · COMO LER ===================== -->
+<div class="folha">
+  <h2 class="titulo-secao">📐 Como ler este livro</h2>
+  <p class="intro-texto">Este livro é <b>vivo</b>: cresce um pouco todas as semanas, um conceito de cada vez. Não é preciso ler por ordem, nem decorar nada — cada página parte de uma situação real, das que já viveste ou podes viver esta semana, e só no fim é que aparece o nome "oficial" do conceito. Primeiro percebe-se, depois é que se nomeia.</p>
+
+  <div class="bloco-explicado">
+    <div class="num">1</div>
+    <div class="txt"><b>Uma situação real</b><span>Cada tema começa com algo do dia a dia — botões, trocos, bolachas, amigos — nunca com uma definição.</span></div>
+  </div>
+  <div class="bloco-explicado">
+    <div class="num">2</div>
+    <div class="txt"><b>A ideia principal</b><span>O raciocínio explicado devagar, a partir dessa situação, até chegares tu próprio à ideia.</span></div>
+  </div>
+  <div class="bloco-explicado">
+    <div class="num">3</div>
+    <div class="txt"><b>Experimenta</b><span>Uma atividade para fazeres sozinho, com coisas que já tens em casa — sem precisares de ninguém a ajudar.</span></div>
+  </div>
+  <div class="bloco-explicado">
+    <div class="num">4</div>
+    <div class="txt"><b>Para recordar</b><span>Uma frase curta para guardares — não é a definição de manual, é a tua maneira de te lembrares.</span></div>
+  </div>
+  <div class="bloco-explicado">
+    <div class="num">5</div>
+    <div class="txt"><b>Nome oficial</b><span>No fim de cada página, em letra pequena: o nome e a definição como aparecem nos livros — agora já fazem sentido, porque já perceberste o resto primeiro.</span></div>
+  </div>
+
+  <div class="notas-redacao">
+    <h3>Notas de redação</h3>
+    <p>Este projeto nasceu com um propósito familiar e pedagógico: ajudar a perceber matemática pela experiência, não pela memorização. O texto foi elaborado com recurso a IA e, embora revisto com atenção, não deve ser tratado como fonte definitiva, académica ou técnica.</p>
+    <ul>
+      <li>Cada página de tema tem o layout que melhor serve esse conceito — por isso não seguem todas exatamente a mesma estrutura.</li>
+      <li>As atividades sugeridas usam objetos comuns de casa e não precisam de supervisão de um adulto.</li>
+      <li>Este material não tem intenção comercial e não deve ser vendido.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===================== VERSO ===================== -->
+<div class="folha folha-branca"></div>
+
+<!-- ===================== 3 · ÍNDICE ===================== -->
+<div class="folha">
+  <h2 class="titulo-secao">📑 Índice</h2>
+  <p class="intro-texto">Pela ordem em que os temas foram acrescentados ao livro. Cada tema é um atalho — clica para ires diretamente lá.</p>
+  <div class="indice-lista" id="indice"></div>
+</div>
+
+<!-- =========================================================================
+     TEMAS — cada folha abaixo é escrita à mão, com o layout mais adequado
+     ao conceito. Usar as classes .situacao / .experimenta / .para-recordar /
+     .curiosidade-tema / .nota-formal como caixa de ferramentas, não como
+     checklist obrigatória.
+     ========================================================================= -->
+
+<!-- ===================== TEMA 01 · NÚMEROS PRIMOS ===================== -->
+<div class="folha folha-tema" id="tema-numeros-primos">
+  <div class="tema-eyebrow">Tema da semana · 01 · 13 set 2026</div>
+  <h1 class="tema-titulo">🔢 Números primos</h1>
+  <p class="tema-gancho">Há números que se recusam a formar equipas parelhas. Vais descobrir porquê — com botões, não com definições.</p>
+
+  <div class="situacao">
+    <span class="lbl">Um desafio com botões</span>
+    <p>Antes de leres mais nada, vai buscar <b>12 botões, moedas, peças de Lego ou feijões</b> — o que tiveres à mão. A missão: arruma-os todos num retângulo. Nada de sobras, nada de pilhas tortas — linhas e colunas certinhas, como uma caixa de bombons.</p>
+    <p>Com 12 consegues de várias maneiras: 2 filas de 6, 3 filas de 4, ou até 1 fila sozinha com os 12. O 12 é um número simpático — tem várias opções.</p>
+    <p>Agora repete o desafio com <b>13</b>. Tenta à vontade: 2 filas? Sobra sempre 1. 3 filas? Também sobra. Por mais que tentes, só há uma forma de arrumar 13 objetos num retângulo — uma única fila comprida, de 13. O 13 é teimoso: recusa-se a dividir-se em equipas iguais.</p>
+  </div>
+
+  <p class="tema-texto">Achas que isto é um acaso do 13? Experimenta com 7, com 11, com 17 — a mesma teimosia. Depois experimenta com 8, 9, 10 ou 14 — esses já aceitam formar retângulos de mais do que uma maneira.</p>
+  <p class="tema-texto">Aos números que só se deixam arrumar de uma forma — sozinhos, numa única fila — chamamos <b>números primos</b>. Repara que o nome vem <b>depois</b> de perceberes o truque: primeiro é o retângulo, o nome é só a etiqueta que colamos a seguir.</p>
+
+  <div class="para-recordar">
+    <span class="lbl">🎒 Para recordar</span>
+    <p>Primo = só aceita ficar numa única fila, sozinho consigo. Nem 2 filas, nem 3 — só ele e o número 1.</p>
+  </div>
+
+  <div class="curiosidade-tema">
+    🦗 <b>Sabias que...?</b> Há cigarras na América do Norte que só saem da terra de 17 em 17 anos, e outras de 13 em 13 anos. Os cientistas pensam que a evolução "escolheu" números primos para os seus ciclos de vida porque assim é muito difícil um predador sincronizar o seu próprio ciclo com o delas. Números primos usados... para sobreviver!
+  </div>
+</div>
+
+<!-- ===================== TEMA 01 · NÚMEROS PRIMOS (continuação) ===================== -->
+<div class="folha folha-tema">
+  <div class="tema-eyebrow">Tema da semana · 01 · 13 set 2026 · continuação</div>
+  <h1 class="tema-titulo" style="font-size:24px;">🔢 Números primos — a experiência</h1>
+
+  <div class="experimenta">
+    <span class="lbl">🧪 Experimenta: caça aos primos até 100</span>
+    <p>Risca a lápis, se estiveres com o livro impresso. <span class="dica-online">Se estás a ler no ecrã, <b>clica em cada número</b> para o riscar (clica outra vez para desfazer).</span> Segue os passos:</p>
+    <ol>
+      <li>Risca o número 1 — não conta, porque nunca forma um retângulo de mais do que uma fila.</li>
+      <li>O 2 fica. Agora risca todos os múltiplos de 2 (4, 6, 8, 10…) — esses formam sempre um retângulo de 2 filas.</li>
+      <li>O próximo número que sobrou é o 3. Fica. Risca todos os múltiplos de 3.</li>
+      <li>Repete a mesma ideia com o próximo número que sobrar (5, depois 7…) até chegares a 10.</li>
+    </ol>
+    <p>Os números que sobraram por riscar são todos os números primos até 100.</p>
+    <div class="grelha-crivo interativa" id="grelha-crivo"></div>
+    <div class="rodape dica-online">
+      <span class="contagem">Por riscar: <b id="contagem-crivo">100</b></span>
+      <button type="button" class="btn-limpar" id="btn-limpar-crivo">🔄 Recomeçar</button>
+    </div>
+  </div>
+
+  <div class="nota-formal">
+    <span class="lbl">🔬 Nome oficial, para quem gosta de rigor</span>
+    <p>Um número primo é um número inteiro maior do que 1 que só é divisível por 1 e por si próprio. O 1 não conta como primo nem como composto — fica de fora da festa toda.</p>
+  </div>
+</div>
+
+<!-- ⬇⬇⬇ PRÓXIMO TEMA: acrescentar a folha nova aqui, antes desta linha ⬇⬇⬇ -->
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script src="dados-temas.js"></script>
+<script>
+const TEMAS = window.TEMAS || [];
+
+function preencherTotais(){
+  document.querySelectorAll('.n-temas').forEach(el=> el.textContent = TEMAS.length);
+}
+
+function renderIndice(){
+  const alvo = document.getElementById('indice');
+  if(!TEMAS.length){
+    alvo.innerHTML = '<p class="indice-vazio">Ainda sem temas — o primeiro está a caminho.</p>';
+    return;
+  }
+  alvo.innerHTML = TEMAS.map((t,i)=>`
+    <a class="indice-tema-item" href="#tema-${t.id}">
+      <span class="n">${String(i+1).padStart(2,'0')}</span>
+      <span class="emoji">${t.emoji || ''}</span>
+      <span class="corpo">
+        <span class="titulo">${t.titulo}</span>
+        <span class="resumo">${t.resumo || ''}</span>
+      </span>
+      <span class="data">${t.dataAdicionado || ''}</span>
+    </a>
+  `).join('');
+}
+
+/* grelha 1-100 para o crivo de Eratóstenes — clicável no ecrã, riscável a lápis no papel */
+function renderGrelhaCrivo(){
+  const alvo = document.getElementById('grelha-crivo');
+  if(!alvo) return;
+  let html = '';
+  for(let n=1; n<=100; n++){
+    html += `<div class="cel" data-n="${n}">${n}</div>`;
+  }
+  alvo.innerHTML = html;
+
+  const contagem = document.getElementById('contagem-crivo');
+  function atualizarContagem(){
+    if(!contagem) return;
+    const total = alvo.querySelectorAll('.cel').length;
+    const riscados = alvo.querySelectorAll('.cel.riscado').length;
+    contagem.textContent = total - riscados;
+    contagem.classList.remove('a-reagir');
+    void contagem.offsetWidth; /* reinicia a animação mesmo em cliques seguidos */
+    contagem.classList.add('a-reagir');
+  }
+
+  alvo.addEventListener('click', (e)=>{
+    const cel = e.target.closest('.cel');
+    if(!cel) return;
+    cel.classList.toggle('riscado');
+    cel.classList.remove('a-reagir');
+    void cel.offsetWidth;
+    cel.classList.add('a-reagir');
+    atualizarContagem();
+  });
+
+  const btnLimpar = document.getElementById('btn-limpar-crivo');
+  if(btnLimpar){
+    btnLimpar.addEventListener('click', ()=>{
+      alvo.querySelectorAll('.cel.riscado').forEach(c=> c.classList.remove('riscado'));
+      atualizarContagem();
+    });
+  }
+}
+
+new QRCode(document.getElementById('qr-capa'), {
+  text: 'https://www.jnvasconcelos.com/livro-matematica',
+  width: 84, height: 84,
+  colorDark: '#000000', colorLight: '#ffffff',
+  correctLevel: QRCode.CorrectLevel.M
+});
+
+preencherTotais();
+renderIndice();
+renderGrelhaCrivo();
+</script>
+</body>
+</html>
