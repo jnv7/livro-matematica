@@ -2,6 +2,7 @@
 <html lang="pt-PT">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Matemática, Conceito a Conceito</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
@@ -272,6 +273,45 @@
       page-break-after:always;break-after:page;
     }
     .folha:last-child{page-break-after:auto;}
+  }
+
+  /* ===================== VISTA TELEMÓVEL (só ecrã, não afeta impressão) =====================
+     As folhas mantêm o formato A4 fixo para impressão; em ecrãs estreitos passam a
+     largura fluida e altura automática, para ler sem fazer zoom nem scroll lateral. */
+  @media screen and (max-width:700px){
+    body{padding:0;}
+    .folha{
+      width:100%;
+      max-width:100%;
+      height:auto;
+      min-height:0;
+      margin:0 0 16px 0;
+      padding:26px 20px;
+      box-shadow:none;
+      border-bottom:10px solid #ddd6c6;
+      overflow:visible;
+    }
+    .folha-tema{padding:26px 20px;}
+    .folha-branca{display:none;}
+
+    .capa{padding:56px 22px;}
+    .capa h1{font-size:32px;}
+    .capa h2{font-size:16px;margin-bottom:30px;}
+    .capa .selo-grande{width:104px;height:104px;font-size:42px;margin-bottom:20px;}
+
+    .titulo-secao{font-size:22px;}
+    .tema-titulo{font-size:26px;}
+    .tema-gancho{font-size:14px;}
+
+    .bloco-explicado{padding:10px;}
+
+    .indice-tema-item{flex-wrap:wrap;row-gap:4px;}
+    .indice-tema-item .data{order:99;width:100%;padding-left:32px;white-space:normal;}
+
+    .grelha-crivo{max-width:100%;}
+    .grelha-crivo .cel{font-size:11px;}
+
+    .nota-formal,.notas-redacao{margin-top:20px;}
   }
 </style>
 </head>

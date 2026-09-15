@@ -16,7 +16,8 @@ não o contrário.
 
 **A situação real vem primeiro, o nome do conceito vem por último.**
 
-O livro destina-se a uma criança de 10 anos, sem supervisão de adulto. O
+O livro destina-se a uma criança de 10 anos (5º ano de escolaridade), sem
+supervisão de adulto. O
 objetivo não é decorar uma definição — é perceber a ideia através de algo
 que a criança já vive ou consegue experimentar (trocos, bolachas, jogos,
 irmãos, animais, desportos, tempo, dinheiro da semanada). A definição
