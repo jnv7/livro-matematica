@@ -261,6 +261,120 @@
   .btn-limpar:hover{background:var(--laranja);color:#fff;}
   @media print{ .experimenta .dica-online{display:none;} }
 
+  /* tabela do segredo — preencher a lápis (tema Potências) */
+  .tabela-segredo{
+    display:grid;grid-template-columns:70px 1fr 120px;
+    margin:10px 0 8px 0;background:#fff;border:1px solid #c9d6cc;
+    border-radius:6px;overflow:hidden;
+  }
+  .tabela-segredo div{
+    padding:6px 10px;font-size:12.5px;border-bottom:1px solid #e1e8e2;
+  }
+  .tabela-segredo div:nth-last-child(-n+3){border-bottom:0;}
+  .tabela-segredo .cab{
+    font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1px;
+    text-transform:uppercase;color:var(--quadro);background:var(--quadro-light);
+  }
+  .tabela-segredo .conta{font-family:'IBM Plex Mono',monospace;}
+  .tabela-segredo .res{
+    font-family:'Fraunces',serif;font-weight:700;color:var(--quadro);text-align:right;
+  }
+  .tabela-segredo .por-preencher{color:#b5ad9b;letter-spacing:1px;}
+
+  /* laboratório de potências — só no ecrã (escolher base e expoente) */
+  .pot-lab{margin-top:12px;padding-top:10px;border-top:1.5px dashed var(--laranja);}
+  .pot-lab .grupo{display:flex;align-items:center;flex-wrap:wrap;gap:5px;margin-bottom:6px;}
+  .pot-lab .grupo-lbl{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.8px;
+    text-transform:uppercase;color:#a85a1f;min-width:66px;
+  }
+  .chip-pot{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;min-width:30px;
+    background:#fff;border:1.5px solid var(--laranja);color:#a85a1f;
+    border-radius:5px;padding:3px 9px;cursor:pointer;
+    transition:background .15s,color .15s;
+  }
+  .chip-pot:hover{background:var(--laranja-light);}
+  .chip-pot[aria-pressed="true"]{background:var(--laranja);color:#fff;}
+  .chip-pot.a-reagir,.pot-total.a-reagir,.pot-desenho.a-reagir{animation:pop .22s ease;}
+  .pot-resultado{
+    background:#fff;border-radius:6px;padding:8px 12px;margin:8px 0 6px 0;
+    font-family:'IBM Plex Mono',monospace;font-size:14px;line-height:1.5;
+  }
+  .pot-total{
+    display:inline-block;font-family:'Fraunces',serif;font-weight:800;
+    font-size:22px;color:var(--quadro);
+  }
+  .pot-passos{font-size:11.5px;color:#5a5145;margin-top:2px;}
+  .pot-desenho{
+    display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+    min-height:136px;margin-top:6px;
+  }
+  .pot-grelha{display:grid;gap:1px;}
+  .pot-grelha i{
+    display:block;width:var(--c);height:var(--c);border-radius:2px;
+    border:1px solid var(--quadro);background:var(--quadro-light);
+  }
+  .pot-grelha.alt i{border-color:var(--laranja);background:var(--laranja-light);}
+  .pot-nota{font-size:11.5px;color:#5a5145;font-style:italic;margin:0;}
+
+  /* divisores vs múltiplos — duas colunas lado a lado (tema Múltiplos e divisores) */
+  .comparacao{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+  .comp-col{border-radius:8px;padding:10px 12px;font-size:12px;line-height:1.5;}
+  .comp-col h3{font-family:'Fraunces',serif;font-weight:700;font-size:15px;margin:0 0 4px 0;}
+  .comp-col p{margin:0 0 4px 0;}
+  .comp-col ul{margin:4px 0 0 16px;padding:0;}
+  .comp-col li{margin-bottom:2px;}
+  .comp-div{background:var(--quadro-light);}
+  .comp-div h3{color:var(--quadro);}
+  .comp-mult{background:var(--laranja-light);}
+  .comp-mult h3{color:#a85a1f;}
+
+  /* caixinhas para escrever a lápis */
+  .escreve-linha{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#a85a1f;
+    background:#fff;border-radius:5px;padding:6px 10px;margin:4px 0 8px 0;
+    letter-spacing:0.5px;
+  }
+  .resposta-mini{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8a6a40;margin-top:2px;
+  }
+
+  /* laboratório de múltiplos e divisores — só no ecrã (clicar num número do 1 ao 60) */
+  .mm-lab{margin-top:10px;padding-top:8px;border-top:1.5px dashed var(--laranja);}
+  .grelha-mm{
+    display:grid;grid-template-columns:repeat(12,1fr);gap:2px;margin:6px 0;
+  }
+  .grelha-mm .cel{
+    aspect-ratio:4/3;border:1px solid #d8cdb8;border-radius:3px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#3a352c;
+    background:#fff;cursor:pointer;user-select:none;
+    transition:background .18s,color .18s,border-color .18s;
+  }
+  .grelha-mm .cel:hover{border-color:var(--laranja);}
+  .grelha-mm .cel.e-div{background:var(--quadro);border-color:var(--quadro);color:#fff;}
+  .grelha-mm .cel.e-mult{background:var(--laranja);border-color:#b8601f;color:#fff;}
+  .grelha-mm .cel.e-sel{
+    background:var(--ink);border-color:var(--giz);color:var(--giz);
+    box-shadow:0 0 0 2px var(--giz);font-weight:600;
+  }
+  .grelha-mm .cel.a-reagir,.mm-resultado.a-reagir{animation:pop .22s ease;}
+  .mm-legenda{font-size:11px;color:#5a5145;margin:0 0 4px 0;}
+  .mm-legenda .ponto{
+    display:inline-block;width:10px;height:10px;border-radius:2px;
+    vertical-align:-1px;margin:0 3px 0 8px;
+  }
+  .mm-legenda .ponto:first-child{margin-left:0;}
+  .mm-resultado{
+    background:#fff;border-radius:6px;padding:8px 12px;margin-top:6px;
+    font-size:12.5px;line-height:1.6;
+  }
+  .mm-resultado .linha b{font-family:'IBM Plex Mono',monospace;}
+  .mm-resultado .v-div b{color:var(--quadro);}
+  .mm-resultado .v-mult b{color:#a85a1f;}
+  .mm-resultado .nota{font-size:11px;color:#8a8272;font-style:italic;}
+
   /* folha em branco (verso da capa) */
   .folha-branca{background:var(--paper);}
 
@@ -310,6 +424,13 @@
 
     .grelha-crivo{max-width:100%;}
     .grelha-crivo .cel{font-size:11px;}
+
+    .tabela-segredo{grid-template-columns:56px 1fr 64px;}
+    .tabela-segredo div{padding:6px 8px;}
+    .pot-lab .grupo-lbl{min-width:100%;}
+
+    .comparacao{grid-template-columns:1fr;}
+    .grelha-mm{grid-template-columns:repeat(10,1fr);}
 
     .nota-formal,.notas-redacao{margin-top:20px;}
   }
@@ -441,6 +562,159 @@
   </div>
 </div>
 
+<!-- ===================== TEMA 02 · POTÊNCIAS ===================== -->
+<div class="folha folha-tema" id="tema-potencias">
+  <div class="tema-eyebrow">Tema da semana · 02 · 21 set 2026</div>
+  <h1 class="tema-titulo">⚡ Potências</h1>
+  <p class="tema-gancho">Há multiplicações tão repetitivas que os matemáticos inventaram um atalho para não se cansarem a escrever. Vais descobri-lo com um segredo que corre pela escola.</p>
+
+  <div class="situacao">
+    <span class="lbl">Um segredo que se espalha</span>
+    <p>Imagina que tens um segredo muito bom (por exemplo, já sabes quem vai ser o novo colega da turma). No <b>dia 1</b>, contas o segredo a <b>2 amigos</b>. No <b>dia 2</b>, cada um desses amigos conta-o a <b>2 pessoas novas</b>, que ainda não sabiam. E assim todos os dias: quem soube na véspera conta a 2 pessoas novas.</p>
+    <p>Quantas pessoas ficam a saber o segredo em cada dia? Pega num lápis e preenche as duas últimas linhas:</p>
+    <div class="tabela-segredo">
+      <div class="cab">Dia</div><div class="cab">A conta</div><div class="cab" style="text-align:right;">Pessoas novas</div>
+      <div>1</div><div class="conta">2</div><div class="res">2</div>
+      <div>2</div><div class="conta">2 × 2</div><div class="res">4</div>
+      <div>3</div><div class="conta">2 × 2 × 2</div><div class="res">8</div>
+      <div>4</div><div class="conta">2 × 2 × 2 × 2</div><div class="res">16</div>
+      <div>5</div><div class="conta por-preencher">____________</div><div class="res por-preencher">____</div>
+      <div>6</div><div class="conta por-preencher">____________</div><div class="res por-preencher">____</div>
+    </div>
+    <p>Deu <b>32</b> no dia 5 e <b>64</b> no dia 6? Então já apanhaste o truque: cada dia tem o dobro do dia anterior.</p>
+  </div>
+
+  <p class="tema-texto">Agora imagina que querias escrever a conta do dia 10: 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2. Dez vezes o 2! Ninguém tem paciência para isso, nem para contar se são mesmo dez.</p>
+  <p class="tema-texto">Por isso inventou-se um atalho: escreve-se o 2 normal e, <b>em cima, pequenino, quantas vezes ele aparece a multiplicar</b>. Assim, 2 × 2 × 2 × 2 passa a ser <b>2<sup>4</sup></b> (diz-se «2 elevado a 4»). O dia 10 é 2<sup>10</sup>, e dá <b>1 024 pessoas novas</b> só nesse dia. Ao dia 24, seriam mais de 16 milhões — mais gente a saber o segredo num só dia do que pessoas que vivem em Portugal!</p>
+
+  <div class="para-recordar">
+    <span class="lbl">🎒 Para recordar</span>
+    <p>O número pequeno lá em cima diz quantas vezes escreves o de baixo a multiplicar por si próprio. 2<sup>4</sup> <u>não</u> é 2 × 4 (que dá 8): é 2 × 2 × 2 × 2, que dá 16.</p>
+  </div>
+
+  <div class="curiosidade-tema">
+    🍚 <b>Sabias que...?</b> Diz a lenda que o inventor do xadrez pediu ao rei, como prémio, arroz no tabuleiro: 1 grão na primeira casa, 2 na segunda, 4 na terceira, 8 na quarta... sempre o dobro. O rei achou que era pouco e aceitou a rir. Mas o tabuleiro tem 64 casas, e só na última seriam 2<sup>63</sup> grãos: mais de 9 triliões (9 seguido de 18 zeros!). Somado o tabuleiro todo, dava mais arroz do que o mundo inteiro produz em centenas de anos.
+  </div>
+</div>
+
+<!-- ===================== TEMA 02 · POTÊNCIAS (continuação) ===================== -->
+<div class="folha folha-tema">
+  <div class="tema-eyebrow">Tema da semana · 02 · 21 set 2026 · continuação</div>
+  <h1 class="tema-titulo" style="font-size:24px;">⚡ Potências — a experiência</h1>
+
+  <div class="experimenta">
+    <span class="lbl">🧪 Experimenta: dobra uma folha e desenha quadrados</span>
+    <p><b>Parte 1 — a folha que não pára de crescer.</b> Pega numa folha de papel qualquer (serve uma do caderno).</p>
+    <ol>
+      <li>Dobra-a ao meio. Quantas camadas de papel tens agora? <b>2</b>, ou seja, 2<sup>1</sup>.</li>
+      <li>Dobra outra vez. Agora são <b>4</b> camadas: 2 × 2, ou 2<sup>2</sup>.</li>
+      <li>Continua a dobrar e vai escrevendo quantas camadas tens: 8 (2<sup>3</sup>), 16 (2<sup>4</sup>)... Por volta da 6.ª ou 7.ª dobra o papel já não deixa, mas chegaste a 64 ou 128 camadas (2<sup>6</sup> ou 2<sup>7</sup>)!</li>
+    </ol>
+    <p>E se o papel deixasse? Com 42 dobras, a pilha de camadas seria tão alta que chegava à <b>Lua</b>. Sim, à Lua!</p>
+
+    <p style="margin-top:10px;"><b>Parte 2 — porque é que se diz «ao quadrado»?</b> Num papel quadriculado, desenha um quadrado com 3 quadradinhos de lado e conta os quadradinhos todos. São <b>9</b>: 3 × 3, ou seja, 3<sup>2</sup>. Por isso se lê «3 ao quadrado». E com peças de Lego (ou cubos de açúcar), um cubo com 3 de lado usa 3 × 3 × 3 = <b>27</b> cubinhos: 3<sup>3</sup>, «3 ao cubo».</p>
+
+    <div class="pot-lab dica-online" id="pot-lab">
+      <span class="lbl">💻 No ecrã: brinca com as potências</span>
+      <div class="grupo"><span class="grupo-lbl">Número</span><span id="pot-bases" class="grupo" style="margin:0;"></span></div>
+      <div class="grupo"><span class="grupo-lbl">Vezes</span><span id="pot-expoentes" class="grupo" style="margin:0;"></span></div>
+      <div class="pot-resultado" id="pot-resultado" aria-live="polite"></div>
+      <div class="pot-desenho" id="pot-desenho"></div>
+    </div>
+  </div>
+
+  <div class="nota-formal">
+    <span class="lbl">🔬 Nome oficial, para quem gosta de rigor</span>
+    <p>Uma <b>potência</b> escreve-se a<sup>n</sup> e representa o número a multiplicado por si próprio n vezes: a<sup>n</sup> = a × a × ... × a. O número de baixo (a) chama-se <b>base</b> e o pequenino de cima (n) chama-se <b>expoente</b>. Lê-se «a elevado a n»; a<sup>2</sup> lê-se também «a ao quadrado» e a<sup>3</sup> «a ao cubo». (E quando o expoente é 0? Fica para outra semana.)</p>
+  </div>
+</div>
+
+<!-- ===================== TEMA 03 · MÚLTIPLOS E DIVISORES ===================== -->
+<div class="folha folha-tema" id="tema-multiplos-e-divisores">
+  <div class="tema-eyebrow">Tema da semana · 03 · 28 set 2026</div>
+  <h1 class="tema-titulo">🧩 Múltiplos e divisores</h1>
+  <p class="tema-gancho">Parecem gémeos e confundem meio mundo. Mas um olha para dentro do número e o outro olha para a frente — vais perceber a diferença com cromos.</p>
+
+  <div class="situacao">
+    <span class="lbl">Cromos: repartir ou comprar?</span>
+    <p><b>História 1 — repartir.</b> Tens <b>12 cromos repetidos</b> e queres oferecê-los a amigos, todos com o mesmo número e sem sobrar nenhum. Com 2 amigos, cada um leva 6. Com 3, leva 4. Com 4, leva 3. E com 5? Sobram 2 — não dá! Pega num lápis: com quantos amigos é que a divisão sai certinha? (Conta também o caso de 1 amigo só, que fica com tudo, e o de 12 amigos, com 1 cromo cada.)</p>
+    <p><b>História 2 — comprar.</b> Na papelaria, as saquetas de cromos trazem sempre <b>4 cromos</b>. Uma saqueta: 4. Duas: 8. Três: 12. Quatro: 16… Quantos cromos podes ter? Só 4, 8, 12, 16, 20, 24… Nunca 10 nem 15, por mais saquetas que compres. E isto nunca acaba: há sempre mais uma saqueta para comprar.</p>
+    <p>Repara: o <b>12</b> apareceu nas duas histórias. Na primeira, repartiste o 12. Na segunda, chegaste ao 12 a crescer de 4 em 4.</p>
+  </div>
+
+  <div class="comparacao">
+    <div class="comp-col comp-div">
+      <h3>História 1: divisores</h3>
+      <p>Os números que <b>cabem certinho</b> dentro do 12, sem sobras:</p>
+      <p><b>1, 2, 3, 4, 6 e 12</b></p>
+      <ul>
+        <li>São poucos.</li>
+        <li>Vão do 1 até ao próprio 12 — nunca passam dele.</li>
+      </ul>
+    </div>
+    <div class="comp-col comp-mult">
+      <h3>História 2: múltiplos</h3>
+      <p>Os números a que chegas <b>a crescer</b> de 4 em 4 (a tabuada do 4):</p>
+      <p><b>4, 8, 12, 16, 20, 24…</b></p>
+      <ul>
+        <li>São infinitos.</li>
+        <li>Começam no próprio 4 e só vão para cima.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="tema-texto">E a ligação entre as duas histórias é esta: <b>12 = 4 × 3</b>. Por isso o 4 é <b>divisor</b> do 12 (cabe lá dentro 3 vezes) e, visto do outro lado, o 12 é <b>múltiplo</b> do 4 (está na tabuada do 4). É a mesma conta, só que olhada de lados diferentes.</p>
+  <p class="tema-texto">Um truque para não trocares: o <b>divisor</b> é sempre o número mais <b>pequeno</b> (ou igual) e o <b>múltiplo</b> é sempre o mais <b>grande</b> (ou igual). Nunca ao contrário.</p>
+
+  <div class="para-recordar">
+    <span class="lbl">🎒 Para recordar</span>
+    <p>Divisor: cabe lá dentro, sem sobras — há poucos e acabam. Múltiplo: está na tabuada, vai sempre a crescer — nunca acabam.</p>
+  </div>
+
+  <div class="curiosidade-tema">
+    🕐 <b>Sabias que...?</b> Uma hora tem 60 minutos porque o 60 tem <b>12 divisores</b> — mais do que qualquer número mais pequeno. Dá para dividir a hora em meias horas, terços, quartos, quintos, sextos… sempre sem partir minutos ao meio. Os babilónios já gostavam do 60 há mais de 4 000 anos, e ainda hoje o usamos nos relógios.
+  </div>
+</div>
+
+<!-- ===================== TEMA 03 · MÚLTIPLOS E DIVISORES (continuação) ===================== -->
+<div class="folha folha-tema">
+  <div class="tema-eyebrow">Tema da semana · 03 · 28 set 2026 · continuação</div>
+  <h1 class="tema-titulo" style="font-size:24px;">🧩 Múltiplos e divisores — a experiência</h1>
+
+  <div class="experimenta">
+    <span class="lbl">🧪 Experimenta: feijões, saltos e verdadeiro ou falso</span>
+
+    <p><b>Parte 1 — os divisores do 18.</b> Pega em <b>18 feijões</b> (ou botões, ou moedas). Arruma-os em filas iguais, sem sobras: quantas filas diferentes consegues fazer? Escreve aqui o número de filas de cada maneira que encontrares:</p>
+    <div class="escreve-linha">Divisores de 18: ____ ____ ____ ____ ____ ____</div>
+    <p>Devem ser 6 números. Repete com <b>17</b> feijões: só encontras 2 maneiras (1 fila e 17 filas). Já viste este número noutra página deste livro? 😉</p>
+
+    <p style="margin-top:10px;"><b>Parte 2 — os múltiplos do 6 e do 9.</b> Conta em voz alta de 6 em 6 até 60 e escreve a lista. Depois faz o mesmo de 9 em 9:</p>
+    <div class="escreve-linha">Múltiplos de 6: ____ ____ ____ ____ ____ ____ ____ ____ ____ ____</div>
+    <div class="escreve-linha">Múltiplos de 9: ____ ____ ____ ____ ____ ____</div>
+    <p>Sublinha os números que aparecem <b>nas duas listas</b>. São múltiplos do 6 e do 9 ao mesmo tempo (e devem ser 3).</p>
+
+    <p style="margin-top:10px;"><b>Parte 3 — verdadeiro ou falso?</b> Usa o truque do «pequeno e grande»:</p>
+    <p>a) 7 é divisor de 21 &nbsp;·&nbsp; b) 21 é divisor de 7 &nbsp;·&nbsp; c) 20 é múltiplo de 5 &nbsp;·&nbsp; d) 5 é múltiplo de 20</p>
+    <div class="resposta-mini">Respostas: a) V · b) F · c) V · d) F</div>
+
+    <div class="mm-lab dica-online" id="mm-lab">
+      <span class="lbl">💻 No ecrã: clica num número e vê os dois mundos</span>
+      <div class="mm-legenda">
+        <span class="ponto" style="background:var(--quadro);"></span>divisores (à esquerda)
+        <span class="ponto" style="background:var(--laranja);"></span>múltiplos (à direita)
+        <span class="ponto" style="background:var(--ink);box-shadow:0 0 0 1px var(--giz);"></span>o número que escolheste
+      </div>
+      <div class="grelha-mm" id="grelha-mm"></div>
+      <div class="mm-resultado" id="mm-resultado" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="nota-formal">
+    <span class="lbl">🔬 Nome oficial, para quem gosta de rigor</span>
+    <p>Diz-se que <b>a é divisor de b</b> quando a divisão de b por a dá um número inteiro, sem resto. Nesse caso, <b>b é múltiplo de a</b>, porque b = a × (um número inteiro). Todos os números têm sempre pelo menos dois divisores: o 1 e ele próprio. Os que só têm esses dois são os <b>números primos</b>, do tema 01.</p>
+  </div>
+</div>
+
 <!-- ⬇⬇⬇ PRÓXIMO TEMA: acrescentar a folha nova aqui, antes desta linha ⬇⬇⬇ -->
 
 <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
@@ -511,6 +785,125 @@ function renderGrelhaCrivo(){
   }
 }
 
+/* laboratório de potências — escolher número e vezes, ver a multiplicação e o desenho */
+function renderPotencias(){
+  const lab = document.getElementById('pot-lab');
+  if(!lab) return;
+  const BASES = [2,3,4,5,6,7,8,9,10];
+  const EXPOENTES = [1,2,3,4,5,6];
+  const fmt = n => n.toLocaleString('pt-PT');
+  const elBases = document.getElementById('pot-bases');
+  const elExps = document.getElementById('pot-expoentes');
+  const elRes = document.getElementById('pot-resultado');
+  const elDesenho = document.getElementById('pot-desenho');
+  let base = 3, exp = 2;
+
+  const chip = v => `<button type="button" class="chip-pot" data-v="${v}" aria-pressed="false">${v}</button>`;
+  elBases.innerHTML = BASES.map(chip).join('');
+  elExps.innerHTML = EXPOENTES.map(chip).join('');
+
+  const reagir = el => {
+    el.classList.remove('a-reagir');
+    void el.offsetWidth; /* reinicia a animação mesmo em cliques seguidos */
+    el.classList.add('a-reagir');
+  };
+
+  const grelha = (lado, alt) =>
+    `<div class="pot-grelha${alt ? ' alt' : ''}" style="grid-template-columns:repeat(${lado},var(--c));">${'<i></i>'.repeat(lado*lado)}</div>`;
+
+  function desenhar(){
+    const c = base <= 6 ? 14 : 12;
+    if(exp === 2){
+      elDesenho.style.setProperty('--c', c + 'px');
+      elDesenho.innerHTML = grelha(base) +
+        `<p class="pot-nota">${base} ao quadrado: ${base} filas de ${base} quadradinhos.</p>`;
+    } else if(exp === 3 && base <= 5){
+      elDesenho.style.setProperty('--c', '10px');
+      elDesenho.innerHTML = Array.from({length:base}, (_,i)=> grelha(base, i%2)).join('') +
+        `<p class="pot-nota">${base} ao cubo: ${base} camadas, cada uma com ${base} × ${base} cubinhos.</p>`;
+    } else if(exp === 3){
+      elDesenho.innerHTML = `<p class="pot-nota">Um cubo com ${base} de lado teria ${fmt(base**3)} cubinhos. Não cabe na página!</p>`;
+    } else {
+      elDesenho.innerHTML = '<p class="pot-nota">Com «vezes» = 2 desenho um quadrado; com 3, um cubo. Experimenta!</p>';
+    }
+  }
+
+  function atualizar(animar){
+    const total = base ** exp;
+    const passos = Array.from({length:exp}, (_,i)=> fmt(base ** (i+1))).join(' → ');
+    elRes.innerHTML =
+      `${base}<sup>${exp}</sup> = ${Array(exp).fill(base).join(' × ')} = <b class="pot-total">${fmt(total)}</b>` +
+      (exp > 1 ? `<div class="pot-passos">Passo a passo: ${passos}</div>` : '');
+    lab.querySelectorAll('#pot-bases .chip-pot').forEach(b=> b.setAttribute('aria-pressed', String(+b.dataset.v === base)));
+    lab.querySelectorAll('#pot-expoentes .chip-pot').forEach(b=> b.setAttribute('aria-pressed', String(+b.dataset.v === exp)));
+    desenhar();
+    if(animar){
+      reagir(elRes.querySelector('.pot-total'));
+      reagir(elDesenho);
+    }
+  }
+
+  lab.addEventListener('click', (e)=>{
+    const b = e.target.closest('.chip-pot');
+    if(!b) return;
+    if(b.parentElement.id === 'pot-bases') base = +b.dataset.v; else exp = +b.dataset.v;
+    reagir(b);
+    atualizar(true);
+  });
+
+  atualizar(false);
+}
+
+/* grelha 1-60 — clicar num número mostra os seus divisores (à esquerda) e múltiplos (à direita) */
+function renderMultiplosDivisores(){
+  const grelha = document.getElementById('grelha-mm');
+  const elRes = document.getElementById('mm-resultado');
+  if(!grelha || !elRes) return;
+  const MAX = 60;
+  let html = '';
+  for(let n=1; n<=MAX; n++) html += `<div class="cel" data-n="${n}">${n}</div>`;
+  grelha.innerHTML = html;
+
+  const reagir = el => {
+    el.classList.remove('a-reagir');
+    void el.offsetWidth; /* reinicia a animação mesmo em cliques seguidos */
+    el.classList.add('a-reagir');
+  };
+
+  function mostrar(n){
+    const divisores = [], multiplos = [];
+    for(let i=1; i<=n; i++) if(n % i === 0) divisores.push(i);
+    for(let m=n; m<=MAX; m+=n) multiplos.push(m);
+
+    grelha.querySelectorAll('.cel').forEach(c=>{
+      const v = +c.dataset.n;
+      c.classList.toggle('e-div', v !== n && n % v === 0);
+      c.classList.toggle('e-mult', v !== n && v % n === 0);
+      c.classList.toggle('e-sel', v === n);
+    });
+
+    const nota = divisores.length === 2
+      ? 'Só dois divisores: o 1 e ele próprio. É um número primo!'
+      : divisores.length === 1
+        ? 'O 1 só tem um divisor: ele próprio.'
+        : `${divisores.length} divisores no total, e o maior é o próprio ${n}.`;
+    elRes.innerHTML =
+      `<div class="linha v-div">Divisores de <b>${n}</b>: <b>${divisores.join(', ')}</b></div>` +
+      `<div class="linha v-mult">Múltiplos de <b>${n}</b>: <b>${multiplos.join(', ')}</b> … e continuam para sempre</div>` +
+      `<div class="nota">${nota}</div>`;
+    reagir(elRes);
+  }
+
+  grelha.addEventListener('click', (e)=>{
+    const c = e.target.closest('.cel');
+    if(!c) return;
+    mostrar(+c.dataset.n);
+    reagir(c);
+  });
+
+  mostrar(12);
+}
+
 new QRCode(document.getElementById('qr-capa'), {
   text: 'https://www.jnvasconcelos.com/livro-matematica',
   width: 84, height: 84,
@@ -521,6 +914,8 @@ new QRCode(document.getElementById('qr-capa'), {
 preencherTotais();
 renderIndice();
 renderGrelhaCrivo();
+renderPotencias();
+renderMultiplosDivisores();
 </script>
 </body>
 </html>

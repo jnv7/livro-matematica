@@ -15,5 +15,19 @@ window.TEMAS = [
     emoji: "🔢",
     resumo: "Porque é que alguns números só se deixam arrumar numa única fila.",
     dataAdicionado: "13 de setembro de 2026"
+  },
+  {
+    id: "potencias",
+    titulo: "Potências",
+    emoji: "⚡",
+    resumo: "Como um segredo contado a 2 amigos chega a milhões — e o atalho para não escrever 2 × 2 × 2 × 2… sem fim.",
+    dataAdicionado: "21 de setembro de 2026"
+  },
+  {
+    id: "multiplos-e-divisores",
+    titulo: "Múltiplos e divisores",
+    emoji: "🧩",
+    resumo: "Dois nomes que parecem gémeos: um reparte o número por dentro, o outro cresce para lá dele — e nunca acaba.",
+    dataAdicionado: "28 de setembro de 2026"
   }
 ];
