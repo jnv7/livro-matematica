@@ -29,5 +29,19 @@ window.TEMAS = [
     emoji: "🧩",
     resumo: "Dois nomes que parecem gémeos: um reparte o número por dentro, o outro cresce para lá dele — e nunca acaba.",
     dataAdicionado: "28 de setembro de 2026"
+  },
+  {
+    id: "conjuntos-e-relacoes",
+    titulo: "Conjuntos e relações",
+    emoji: "🧺",
+    resumo: "Quem está dentro, quem está fora e qual é o maior — os símbolos ∈, ⊂, < e > nascidos da lista de uma festa.",
+    dataAdicionado: "9 de outubro de 2026"
+  },
+  {
+    id: "fracoes",
+    titulo: "Frações",
+    emoji: "🍫",
+    resumo: "Uma tablete de 24 quadradinhos mostra o que uma fração manda fazer — e porque é que, às vezes, é um número inteiro disfarçado.",
+    dataAdicionado: "9 de outubro de 2026"
   }
 ];

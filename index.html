@@ -283,8 +283,8 @@
 
   /* laboratório de potências — só no ecrã (escolher base e expoente) */
   .pot-lab{margin-top:12px;padding-top:10px;border-top:1.5px dashed var(--laranja);}
-  .pot-lab .grupo{display:flex;align-items:center;flex-wrap:wrap;gap:5px;margin-bottom:6px;}
-  .pot-lab .grupo-lbl{
+  .pot-lab .grupo,.fr-lab .grupo,.cj-lab .grupo{display:flex;align-items:center;flex-wrap:wrap;gap:5px;margin-bottom:6px;}
+  .pot-lab .grupo-lbl,.fr-lab .grupo-lbl,.cj-lab .grupo-lbl{
     font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.8px;
     text-transform:uppercase;color:#a85a1f;min-width:66px;
   }
@@ -375,6 +375,110 @@
   .mm-resultado .v-mult b{color:#a85a1f;}
   .mm-resultado .nota{font-size:11px;color:#8a8272;font-style:italic;}
 
+  /* ===== tema Conjuntos e relações ===== */
+  /* tabela de símbolos: símbolo · lê-se · exemplo real */
+  .tabela-simbolos{
+    display:grid;grid-template-columns:58px 172px 1fr;
+    margin:8px 0 10px 0;background:#fff;border:1px solid #c9d6cc;
+    border-radius:6px;overflow:hidden;flex-shrink:0;
+  }
+  .tabela-simbolos div{
+    padding:5px 10px;font-size:11.5px;line-height:1.35;
+    border-bottom:1px solid #e1e8e2;
+  }
+  .tabela-simbolos div:nth-last-child(-n+3){border-bottom:0;}
+  .tabela-simbolos .cab{
+    font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1px;
+    text-transform:uppercase;color:var(--quadro);background:var(--quadro-light);
+  }
+  .tabela-simbolos .sim{
+    font-family:'Fraunces',serif;font-weight:700;font-size:16px;
+    color:var(--quadro);text-align:center;
+  }
+  .tabela-simbolos .ex{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5a5145;}
+
+  /* laboratório de conjuntos — só no ecrã (montar um conjunto a partir de uma regra) */
+  .cj-lab{margin-top:10px;padding-top:8px;border-top:1.5px dashed var(--laranja);}
+  .grelha-cj{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;margin:6px 0;}
+  .grelha-cj .cel{
+    aspect-ratio:4/3;border:1px solid #d8cdb8;border-radius:3px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#3a352c;
+    background:#fff;cursor:pointer;user-select:none;
+    transition:background .18s,color .18s,border-color .18s;
+  }
+  .grelha-cj .cel:hover{border-color:var(--laranja);}
+  .grelha-cj .cel.dentro{background:var(--quadro);border-color:var(--quadro);color:#fff;font-weight:600;}
+  .grelha-cj .cel.fora{
+    background:#ece6d8;color:#b0a692;border-color:#e2d9c4;text-decoration:line-through;
+  }
+  .grelha-cj .cel.a-reagir,.cj-resultado.a-reagir{animation:pop .22s ease;}
+  .cj-resultado{
+    background:#fff;border-radius:6px;padding:8px 12px;margin-top:6px;
+    font-size:12.5px;line-height:1.6;
+  }
+  .cj-resultado .chaves{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--quadro);font-weight:600;
+  }
+  .cj-resultado .nota{font-size:11px;color:#8a8272;font-style:italic;}
+  .cj-resultado .nota.feita{color:#a85a1f;font-style:normal;}
+
+  /* ===== tema Frações ===== */
+  /* fração empilhada, para se ler como no caderno */
+  .fr{
+    display:inline-flex;flex-direction:column;align-items:center;
+    vertical-align:-0.35em;line-height:1;
+    font-family:'IBM Plex Mono',monospace;font-size:0.72em;
+  }
+  /* nas legendas e no laboratório a fração é a protagonista: fica maior */
+  .tablete-cartao .leg .fr,.fr-resultado .conta .fr{font-size:1.05em;vertical-align:-0.42em;}
+  .fr b{border-bottom:1.3px solid currentColor;padding:0 2px;color:inherit;font-weight:600;}
+  .fr i{font-style:normal;padding:0 2px;}
+
+  /* tablete de chocolate: 24 quadradinhos, 4 filas de 6, a encher por colunas */
+  .tablete{
+    display:grid;grid-template-rows:repeat(4,1fr);grid-auto-flow:column;gap:2px;
+    padding:3px;background:#f7efe4;border:1.5px solid #8a5a2b;border-radius:4px;
+    width:max-content;
+  }
+  .tablete i{
+    display:block;width:12px;height:12px;border-radius:2px;
+    border:1px solid #c49a6c;background:#fff;
+  }
+  .tablete i.cheio{background:var(--laranja);border-color:#8a5a2b;}
+  .tablete.a-reagir{animation:pop .22s ease;}
+  .tabletes-demo{display:flex;gap:16px;flex-wrap:wrap;margin:10px 0 10px 0;}
+  .tablete-cartao .leg{
+    font-size:11px;color:#5a5145;margin-top:5px;text-align:center;line-height:1.3;
+  }
+  .tablete-cartao .leg b{color:var(--quadro);}
+
+  /* pontes para os temas já aprendidos */
+  .pontes{display:flex;flex-direction:column;gap:7px;margin-bottom:12px;}
+  .ponte{
+    display:flex;gap:10px;align-items:flex-start;background:#fff;
+    border-left:3px solid var(--quadro);border-radius:0 6px 6px 0;padding:8px 12px;
+  }
+  .ponte .ic{font-size:16px;line-height:1.2;}
+  .ponte .tx{font-size:12px;line-height:1.5;}
+  .ponte .tx b{color:var(--quadro);}
+  .ponte .de{
+    display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;
+    text-transform:uppercase;color:var(--laranja);margin-bottom:2px;
+  }
+
+  /* laboratório de frações — só no ecrã (escolher as partes e as que se levam) */
+  .fr-lab{margin-top:10px;padding-top:8px;border-top:1.5px dashed var(--laranja);}
+  .fr-resultado{
+    background:#fff;border-radius:6px;padding:8px 12px;margin:8px 0 0 0;
+    font-size:12.5px;line-height:1.6;
+  }
+  .fr-resultado .conta{font-family:'IBM Plex Mono',monospace;}
+  .fr-resultado .conta b{font-family:'Fraunces',serif;font-size:17px;color:var(--quadro);}
+  .fr-resultado .nota{font-size:11px;color:#5a5145;font-style:italic;margin-top:2px;}
+  .fr-resultado.a-reagir{animation:pop .22s ease;}
+  .fr-palco{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px;}
+
   /* folha em branco (verso da capa) */
   .folha-branca{background:var(--paper);}
 
@@ -431,6 +535,12 @@
 
     .comparacao{grid-template-columns:1fr;}
     .grelha-mm{grid-template-columns:repeat(10,1fr);}
+    .grelha-cj{grid-template-columns:repeat(8,1fr);}
+    .tabela-simbolos{grid-template-columns:44px 1fr;}
+    .tabela-simbolos .cab:nth-child(3){display:none;}
+    .tabela-simbolos .ex{grid-column:1 / -1;padding-top:0;}
+    .tabletes-demo{gap:12px;justify-content:center;}
+    .fr-lab .grupo-lbl,.cj-lab .grupo-lbl{min-width:100%;}
 
     .nota-formal,.notas-redacao{margin-top:20px;}
   }
@@ -715,6 +825,170 @@
   </div>
 </div>
 
+<!-- ===================== TEMA 04 · CONJUNTOS E RELAÇÕES ===================== -->
+<div class="folha folha-tema" id="tema-conjuntos-e-relacoes">
+  <div class="tema-eyebrow">Tema da semana · 04 · 09 out 2026</div>
+  <h1 class="tema-titulo">🧺 Conjuntos e relações</h1>
+  <p class="tema-gancho">Antes de fazer contas, a matemática precisa de responder a perguntas muito simples: isto está dentro ou está fora? E qual deles é o maior? Há símbolos que dizem isso em dois riscos.</p>
+
+  <div class="situacao">
+    <span class="lbl">A lista da festa de aniversário</span>
+    <p>Fazes anos e a tua mãe diz a frase mais perigosa do mundo: «escreve aí quem queres convidar». Pegas num papel e fazes a lista. Pronto — acabaste de criar um <b>conjunto</b>: um grupo de coisas com uma regra clara para se saber quem está lá dentro e quem não está.</p>
+    <p>No dia seguinte, no recreio, o Rui aparece com a pergunta difícil: «eu estou na lista?» Repara que só há <b>duas respostas possíveis</b>: está ou não está. Não existe «mais ou menos na lista». Cada pessoa da lista é um <b>elemento</b>.</p>
+    <p>Depois a tua mãe acrescenta: «convida os primos todos». Os teus 4 primos passam a estar na lista — todos, sem exceção. Então o grupo «os meus primos» ficou <b>inteiro dentro</b> do grupo «os meus convidados». Já não é uma pessoa que está dentro: é um grupo completo dentro de outro grupo.</p>
+    <p>E ao jantar o teu irmão não resiste: «na minha festa foram 8 e na tua são 12». Aí já não interessa quem está dentro — interessa <b>comparar</b>: 12 é maior do que 8.</p>
+  </div>
+
+  <p class="tema-texto">Nesta história apareceram as três perguntas que a matemática faz a toda a hora: <b>quem está dentro</b>, <b>que grupo está dentro de que grupo</b> e <b>qual é o maior</b>. Como são perguntas que se repetem sempre, inventaram-se símbolos para não andar a escrever tudo por palavras. Os conjuntos escrevem-se entre <b>chaves</b>: {Rui, Ana, Tomás}.</p>
+
+  <div class="tabela-simbolos">
+    <div class="cab">Sinal</div><div class="cab">Lê-se</div><div class="cab">Na prática</div>
+    <div class="sim">&lt;</div><div>é menor do que</div><div class="ex">3 &lt; 7 (o bico aponta para o pequeno)</div>
+    <div class="sim">&gt;</div><div>é maior do que</div><div class="ex">12 &gt; 8 (a tua festa &gt; a dele)</div>
+    <div class="sim">= &nbsp;≠</div><div>é igual a · é diferente de</div><div class="ex">2 + 2 = 4 &nbsp;·&nbsp; 2 + 2 ≠ 5</div>
+    <div class="sim">≤ &nbsp;≥</div><div>no máximo · pelo menos</div><div class="ex">mochila ≤ 10 kg</div>
+    <div class="sim">∈ &nbsp;∉</div><div>pertence a · não pertence a</div><div class="ex">Rui ∈ {convidados} &nbsp;·&nbsp; Tiago ∉ {convidados}</div>
+    <div class="sim">⊂ &nbsp;⊃</div><div>está contido em · contém</div><div class="ex">{primos} ⊂ {convidados} &nbsp;·&nbsp; {convidados} ⊃ {primos}</div>
+  </div>
+
+  <div class="para-recordar">
+    <span class="lbl">🎒 Para recordar</span>
+    <p>∈ é para <u>um</u> elemento («o Rui está na lista»). ⊂ é para <u>um grupo inteiro</u> («os primos todos estão na lista»). E o &lt; é um crocodilo: a boca aberta vira-se sempre para a refeição maior.</p>
+  </div>
+
+  <div class="curiosidade-tema">
+    ✍️ <b>Sabias que...?</b> O sinal <b>=</b> foi inventado em 1557 por um galês chamado Robert Recorde, que estava farto de escrever «é igual a» por palavras em todas as linhas. Escolheu dois riscos paralelos do mesmo tamanho e explicou porquê: não há nada no mundo que possa ser mais igual do que duas linhas gémeas. Os sinais &lt; e &gt; só apareceram cerca de 70 anos depois.
+  </div>
+</div>
+
+<!-- ===================== TEMA 04 · CONJUNTOS E RELAÇÕES (continuação) ===================== -->
+<div class="folha folha-tema">
+  <div class="tema-eyebrow">Tema da semana · 04 · 09 out 2026 · continuação</div>
+  <h1 class="tema-titulo" style="font-size:24px;">🧺 Conjuntos e relações — a experiência</h1>
+
+  <div class="experimenta">
+    <span class="lbl">🧪 Experimenta: o porteiro da caixa</span>
+
+    <p><b>Parte 1 — a caixa com uma regra.</b> Vai buscar uma caixa (ou um saco) e um papel.</p>
+    <ol>
+      <li>Escreve no papel uma regra clara e cola-a na caixa. Por exemplo: <i>«coisas que escrevem»</i>.</li>
+      <li>Dá uma volta à casa e põe lá dentro <b>6 coisas que obedecem à regra</b>. Lápis? Pertence. Caneta? Pertence.</li>
+      <li>Agora põe <b>3 coisas ao lado da caixa</b> que não obedecem: uma colher, uma meia, um tampão. Diz em voz alta: «a colher não pertence».</li>
+      <li>Por fim, mete um saco pequeno dentro da caixa com <b>só os lápis</b>. O saco inteiro está dentro da caixa: {lápis} ⊂ {coisas que escrevem}.</li>
+    </ol>
+    <p>Repara na diferença: um lápis <b>pertence</b> (∈) à caixa; o saco dos lápis <b>está contido</b> (⊂) na caixa. Um é uma peça, o outro é um grupo.</p>
+
+    <p style="margin-top:10px;"><b>Parte 2 — escreve o símbolo certo.</b> Põe a lápis &lt;, &gt; ou = nas primeiras, e ∈, ∉ ou ⊂ nas outras:</p>
+    <div class="escreve-linha">a) 7 ____ 4 &nbsp;&nbsp; b) 15 ____ 15 &nbsp;&nbsp; c) 2³ ____ 9 &nbsp;&nbsp; d) 5 × 3 ____ 3 × 5</div>
+    <div class="escreve-linha">e) 11 ____ {primos} &nbsp;&nbsp; f) 9 ____ {primos} &nbsp;&nbsp; g) 15 ____ {múltiplos de 5}</div>
+    <div class="escreve-linha">h) {múltiplos de 10} ____ {múltiplos de 5}</div>
+    <div class="resposta-mini">Respostas: a) &gt; · b) = · c) &lt; (2³ = 8) · d) = · e) ∈ · f) ∉ (9 = 3 × 3) · g) ∈ · h) ⊂</div>
+
+    <div class="cj-lab dica-online" id="cj-lab">
+      <span class="lbl">💻 No ecrã: monta o conjunto</span>
+      <div class="grupo"><span class="grupo-lbl">Regra</span><span id="cj-regras" class="grupo" style="margin:0;"></span></div>
+      <p style="font-size:11.5px;margin:4px 0 0 0;">Clica nos números de 1 a 24 que obedecem à regra. Se pertencem ficam verdes (∈); se não pertencem ficam riscados (∉).</p>
+      <div class="grelha-cj" id="grelha-cj"></div>
+      <div class="rodape">
+        <span class="contagem" id="cj-contagem"></span>
+        <button type="button" class="btn-limpar" id="btn-limpar-cj">🔄 Recomeçar</button>
+      </div>
+      <div class="cj-resultado" id="cj-resultado" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="curiosidade-tema">
+    🪟 <b>Sabias que...?</b> Para mostrar conjuntos que se cruzam (os que gostam de futebol, os que gostam de natação, e os que gostam dos dois) desenham-se bolas sobrepostas: são os <b>diagramas de Venn</b>, do inglês John Venn, de 1880. Em Cambridge, na faculdade onde ele deu aulas, há um vitral com três círculos coloridos a cruzarem-se, feito em sua memória.
+  </div>
+
+  <div class="nota-formal">
+    <span class="lbl">🔬 Nome oficial, para quem gosta de rigor</span>
+    <p>Um <b>conjunto</b> é uma coleção bem definida de objetos, e cada objeto é um <b>elemento</b>. Escreve-se entre chaves: A = {2, 3, 5}. <b>x ∈ A</b> lê-se «x pertence a A»; <b>x ∉ A</b>, «x não pertence a A». Se todos os elementos de B também estiverem em A, diz-se que B <b>está contido</b> em A (B ⊂ A) e que B é um <b>subconjunto</b> de A; do outro lado, A <b>contém</b> B (A ⊃ B). Os sinais &lt;, &gt;, =, ≠, ≤ e ≥ chamam-se <b>relações de ordem</b>. O número de elementos de um conjunto é o seu <b>cardinal</b> e escreve-se #A.</p>
+  </div>
+</div>
+
+<!-- ===================== TEMA 05 · FRAÇÕES ===================== -->
+<div class="folha folha-tema" id="tema-fracoes">
+  <div class="tema-eyebrow">Tema da semana · 05 · 09 out 2026</div>
+  <h1 class="tema-titulo">🍫 Frações</h1>
+  <p class="tema-gancho">Uma fração não é um número esquisito com dois pisos: é uma ordem de serviço — «corta em tantas partes, leva tantas». E, às vezes, é um número inteiro disfarçado.</p>
+
+  <div class="situacao">
+    <span class="lbl">Uma tablete com 24 quadradinhos</span>
+    <p>Tens à frente uma tablete de chocolate com <b>24 quadradinhos</b> (4 filas de 6) para repartir sem discussões. Tu e o teu irmão: <b>metade</b> para cada um, 12 quadradinhos. Metade escreve-se <span class="fr"><b>1</b><i>2</i></span>: o número <b>de baixo</b> diz em quantas partes iguais cortas a tablete (duas) e o <b>de cima</b> diz quantas dessas partes levas (uma).</p>
+    <p>Chega a tua prima: agora são três, cada um leva <span class="fr"><b>1</b><i>3</i></span>, que são 8 quadradinhos. Vêm os pais e os avós, seis pessoas: <span class="fr"><b>1</b><i>6</i></span> cada, 4 quadradinhos. É sempre a mesma tablete — só muda o tamanho do pedaço.</p>
+    <div class="tabletes-demo" id="tabletes-demo"></div>
+    <p>Mas se aparecer um quinto amigo, a festa estraga-se: 24 quadradinhos não se dividem em <b>5</b> partes iguais — sobram sempre 4, e tens de partir quadradinhos ao meio. E tu já sabes porquê: o <b>5 não é divisor de 24</b>.</p>
+  </div>
+
+  <p class="tema-texto">É aqui que está o grande segredo da fração: aquela barra no meio é <b>um sinal de divisão à espera de ser feito</b>. <span class="fr"><b>1</b><i>4</i></span> de 24 quadradinhos é 24 ÷ 4 = 6. E <span class="fr"><b>12</b><i>4</i></span> é mesmo 12 ÷ 4, ou seja, <b>3</b> — uma fração que no fundo era um número inteiro com uma capa por cima.</p>
+
+  <div class="pontes">
+    <div class="ponte">
+      <span class="ic">🧩</span>
+      <span class="tx"><span class="de">Liga ao tema 03 · múltiplos e divisores</span>Quando o número de baixo é <b>divisor</b> do de cima, a divisão sai certinha e a fração é um <b>número inteiro</b>: <span class="fr"><b>8</b><i>4</i></span> = 2, <span class="fr"><b>24</b><i>6</i></span> = 4, <span class="fr"><b>24</b><i>24</i></span> = 1. Quando não é divisor, fica uma fração a sério: <span class="fr"><b>7</b><i>4</i></span> não é número inteiro nenhum, porque o 4 não cabe certinho no 7.</span>
+    </div>
+    <div class="ponte">
+      <span class="ic">🔢</span>
+      <span class="tx"><span class="de">Liga ao tema 01 · números primos</span>Imagina uma tablete com <b>13</b> quadradinhos. Só se deixa repartir de duas maneiras: 1 pessoa leva os 13, ou 13 pessoas levam 1 cada. As tabletes com um número <b>primo</b> de quadradinhos são as impossíveis de repartir.</span>
+    </div>
+  </div>
+
+  <div class="para-recordar">
+    <span class="lbl">🎒 Para recordar</span>
+    <p>O de baixo diz <u>em quantas partes cortas</u>; o de cima diz <u>quantas levas</u>. A barra é uma divisão à espera: se o de baixo for divisor do de cima, dá um número inteiro.</p>
+  </div>
+
+  <div class="curiosidade-tema">
+    🏺 <b>Sabias que...?</b> Os egípcios, há 4 000 anos, só escreviam frações com <b>1</b> em cima: <span class="fr"><b>1</b><i>2</i></span>, <span class="fr"><b>1</b><i>3</i></span>, <span class="fr"><b>1</b><i>4</i></span>… Para dizer três quartos escreviam «um meio mais um quarto». A única exceção que admitiam era o dois terços. Dava muito mais trabalho, mas funcionava: o papiro de Rhind, o caderno de contas mais famoso do Egito, está cheio de somas dessas.
+  </div>
+</div>
+
+<!-- ===================== TEMA 05 · FRAÇÕES (continuação) ===================== -->
+<div class="folha folha-tema">
+  <div class="tema-eyebrow">Tema da semana · 05 · 09 out 2026 · continuação</div>
+  <h1 class="tema-titulo" style="font-size:24px;">🍫 Frações — a experiência</h1>
+
+  <div class="experimenta">
+    <span class="lbl">🧪 Experimenta: dobra, pinta e descobre o truque</span>
+
+    <p><b>Parte 1 — as dobras que fazem frações.</b> Pega numa folha de papel. Na semana das ⚡ potências dobraste-a para contar camadas; agora as dobras contam <b>pedaços do todo</b>.</p>
+    <ol>
+      <li>Dobra ao meio e abre. A folha ficou com 2 partes iguais: cada uma é <span class="fr"><b>1</b><i>2</i></span>.</li>
+      <li>Dobra ao meio outra vez e abre: 4 partes. Cada uma é <span class="fr"><b>1</b><i>4</i></span>, e 4 = 2 × 2 = 2².</li>
+      <li>Outra dobra: 8 partes, cada uma <span class="fr"><b>1</b><i>8</i></span> — e 8 = 2³.</li>
+    </ol>
+    <div class="escreve-linha">Dobras: 1 → 1/__ &nbsp; 2 → 1/__ &nbsp; 3 → 1/__ &nbsp; 4 → 1/__ &nbsp; 5 → 1/__ &nbsp; 6 → 1/__</div>
+    <div class="resposta-mini">2, 4, 8, 16, 32, 64 — são todas potências de 2. Quanto maior o expoente, mais pequeno o pedaço.</div>
+
+    <p style="margin-top:10px;"><b>Parte 2 — o mesmo chocolate, cortado de outra maneira.</b> Desenha numa folha uma tira comprida (ou usa a tablete do laboratório lá em baixo).</p>
+    <ol>
+      <li>Divide a tira ao meio e pinta <b>uma</b> das partes. Pintaste <span class="fr"><b>1</b><i>2</i></span>.</li>
+      <li>Sem apagar nada, corta cada uma das 2 partes em duas: agora há <b>4</b> partes e a tua pintura ocupa <b>2</b> delas — <span class="fr"><b>2</b><i>4</i></span>. Pintaste mais chocolate? <b>Não!</b> É exatamente o mesmo.</li>
+      <li>Corta outra vez cada parte em duas: 8 partes, a pintura ocupa 4 — <span class="fr"><b>4</b><i>8</i></span>. Em 24 partes, ocuparia 12: <span class="fr"><b>12</b><i>24</i></span>.</li>
+    </ol>
+    <p>Olha para o que fizeste de cada vez: <b>multiplicaste o de cima e o de baixo pelo mesmo número</b>. E porque é que isso não muda nada? Porque <span class="fr"><b>2</b><i>2</i></span> é 1 (duas partes de duas são tudo), e <b>multiplicar por 1 nunca muda nada</b> — é a propriedade que já conheces da multiplicação. Partes mais pequenas, mais pedaços, mesma quantidade de chocolate.</p>
+
+    <div class="fr-lab dica-online" id="fr-lab">
+      <span class="lbl">💻 No ecrã: o laboratório da tablete</span>
+      <div class="grupo"><span class="grupo-lbl">Partes</span><span id="fr-dens" class="grupo" style="margin:0;"></span></div>
+      <div class="grupo"><span class="grupo-lbl">Levas</span><span id="fr-nums" class="grupo" style="margin:0;"></span></div>
+      <div class="fr-palco"><div class="tablete" id="fr-tablete"></div></div>
+      <div class="fr-resultado" id="fr-resultado" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="para-recordar">
+    <span class="lbl">🎒 Para recordar</span>
+    <p>Cortar cada pedaço ao meio não dá mais chocolate: dá mais pedaços, e mais pequenos. <span class="fr"><b>1</b><i>2</i></span>, <span class="fr"><b>2</b><i>4</i></span>, <span class="fr"><b>4</b><i>8</i></span> e <span class="fr"><b>12</b><i>24</i></span> são a mesma coisa escrita de quatro maneiras.</p>
+  </div>
+
+  <div class="nota-formal">
+    <span class="lbl">🔬 Nome oficial, para quem gosta de rigor</span>
+    <p>Numa fração, o número de cima é o <b>numerador</b> (quantas partes se levam) e o de baixo o <b>denominador</b> (em quantas partes iguais se dividiu o todo); o denominador nunca pode ser 0. A barra é uma divisão: a fração <i>a</i>/<i>b</i> vale <i>a</i> ÷ <i>b</i>. Quando <i>b</i> é divisor de <i>a</i>, a fração é igual a um número inteiro — e <i>a</i>/<i>a</i> = 1, <i>a</i>/1 = <i>a</i>. Multiplicar (ou dividir) o numerador e o denominador pelo mesmo número dá <b>frações equivalentes</b>: a mesma quantidade escrita de outra maneira. É deste último truque que sai tudo o que vem a seguir.</p>
+  </div>
+</div>
+
 <!-- ⬇⬇⬇ PRÓXIMO TEMA: acrescentar a folha nova aqui, antes desta linha ⬇⬇⬇ -->
 
 <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
@@ -904,6 +1178,184 @@ function renderMultiplosDivisores(){
   mostrar(12);
 }
 
+/* laboratório de conjuntos — escolher uma regra e montar o conjunto a clicar nos números */
+function renderConjuntos(){
+  const lab = document.getElementById('cj-lab');
+  if(!lab) return;
+  const MAX = 24;
+  const ehPrimo = n => {
+    if(n < 2) return false;
+    for(let i=2; i*i<=n; i++) if(n % i === 0) return false;
+    return true;
+  };
+  const REGRAS = [
+    {nome:'números pares', teste:n=> n % 2 === 0,
+     nota:'Os pares são exatamente os múltiplos de 2 — a mesma ideia com outro nome.'},
+    {nome:'múltiplos de 4', teste:n=> n % 4 === 0,
+     nota:'Repara: todos estes também são pares. Logo {múltiplos de 4} ⊂ {pares}.'},
+    {nome:'múltiplos de 3', teste:n=> n % 3 === 0,
+     nota:'De 3 em 3, sempre a crescer — e nunca acabariam se a grelha continuasse.'},
+    {nome:'divisores de 24', teste:n=> 24 % n === 0,
+     nota:'São poucos e param no próprio 24: os divisores nunca passam do número.'},
+    {nome:'números primos', teste:ehPrimo,
+     nota:'Nove primos até 24. O 1 fica de fora da festa: não é primo.'}
+  ];
+  const elRegras = document.getElementById('cj-regras');
+  const grelha = document.getElementById('grelha-cj');
+  const elRes = document.getElementById('cj-resultado');
+  const elCont = document.getElementById('cj-contagem');
+  let regra = 0;
+
+  elRegras.innerHTML = REGRAS.map((r,i)=>
+    `<button type="button" class="chip-pot" data-i="${i}" aria-pressed="false">${r.nome}</button>`).join('');
+  grelha.innerHTML = Array.from({length:MAX}, (_,i)=>
+    `<div class="cel" data-n="${i+1}">${i+1}</div>`).join('');
+
+  const reagir = el => {
+    el.classList.remove('a-reagir');
+    void el.offsetWidth; /* reinicia a animação mesmo em cliques seguidos */
+    el.classList.add('a-reagir');
+  };
+
+  const limpar = () => grelha.querySelectorAll('.cel').forEach(c=>
+    c.classList.remove('dentro','fora'));
+
+  function atualizar(){
+    const r = REGRAS[regra];
+    const totais = [];
+    for(let n=1; n<=MAX; n++) if(r.teste(n)) totais.push(n);
+    const achados = [...grelha.querySelectorAll('.cel.dentro')].map(c=> +c.dataset.n).sort((a,b)=>a-b);
+    const completo = achados.length === totais.length;
+
+    elCont.innerHTML = `Encontraste: <b>${achados.length}</b> de ${totais.length}`;
+    elRes.innerHTML =
+      `<div><span class="chaves">{ ${achados.join(', ')}${achados.length ? ' ' : ''}}</span></div>` +
+      `<div class="nota${completo ? ' feita' : ''}">${
+        completo
+          ? `✓ Conjunto completo — tem ${totais.length} elementos. ${r.nota}`
+          : `Conjunto dos ${r.nome} até 24. Faltam ${totais.length - achados.length}.`
+      }</div>`;
+    lab.querySelectorAll('#cj-regras .chip-pot').forEach(b=>
+      b.setAttribute('aria-pressed', String(+b.dataset.i === regra)));
+  }
+
+  grelha.addEventListener('click', (e)=>{
+    const cel = e.target.closest('.cel');
+    if(!cel) return;
+    const n = +cel.dataset.n;
+    if(cel.classList.contains('dentro') || cel.classList.contains('fora')){
+      cel.classList.remove('dentro','fora');
+    } else {
+      cel.classList.add(REGRAS[regra].teste(n) ? 'dentro' : 'fora');
+    }
+    reagir(cel);
+    atualizar();
+  });
+
+  elRegras.addEventListener('click', (e)=>{
+    const b = e.target.closest('.chip-pot');
+    if(!b) return;
+    regra = +b.dataset.i;
+    limpar();
+    reagir(b);
+    atualizar();
+    reagir(elRes);
+  });
+
+  const btn = document.getElementById('btn-limpar-cj');
+  if(btn) btn.addEventListener('click', ()=>{ limpar(); atualizar(); });
+
+  atualizar();
+}
+
+/* tabletes de exemplo (1/2, 1/3, 1/6 dos 24 quadradinhos) — a encher por colunas */
+function renderTabletesDemo(){
+  const alvo = document.getElementById('tabletes-demo');
+  if(!alvo) return;
+  const TOTAL = 24;
+  alvo.innerHTML = [2,3,6].map(d=>{
+    const k = TOTAL / d;
+    const cels = Array.from({length:TOTAL}, (_,i)=> `<i class="${i<k ? 'cheio' : ''}"></i>`).join('');
+    return `<div class="tablete-cartao">
+        <div class="tablete">${cels}</div>
+        <div class="leg"><span class="fr"><b>1</b><i>${d}</i></span> da tablete = ${k} quadradinhos</div>
+      </div>`;
+  }).join('');
+}
+
+/* laboratório da tablete — escolher em quantas partes se corta e quantas se levam */
+function renderFracoesLab(){
+  const lab = document.getElementById('fr-lab');
+  if(!lab) return;
+  const TOTAL = 24;
+  const DENS = [2,3,4,5,6,8,12];
+  const mdc = (a,b)=> b ? mdc(b, a % b) : a;
+  const elDens = document.getElementById('fr-dens');
+  const elNums = document.getElementById('fr-nums');
+  const elTab = document.getElementById('fr-tablete');
+  const elRes = document.getElementById('fr-resultado');
+  let d = 4, n = 3;
+
+  const reagir = el => {
+    el.classList.remove('a-reagir');
+    void el.offsetWidth; /* reinicia a animação mesmo em cliques seguidos */
+    el.classList.add('a-reagir');
+  };
+  const frac = (a,b)=> `<span class="fr"><b>${a}</b><i>${b}</i></span>`;
+
+  elDens.innerHTML = DENS.map(v=>
+    `<button type="button" class="chip-pot" data-d="${v}" aria-pressed="false">${v}</button>`).join('');
+
+  function chipsNum(){
+    elNums.innerHTML = Array.from({length:d}, (_,i)=>
+      `<button type="button" class="chip-pot" data-n="${i+1}" aria-pressed="false">${i+1}</button>`).join('');
+  }
+
+  function atualizar(animar){
+    const divide = TOTAL % d === 0;
+    const k = divide ? n * (TOTAL / d) : 0;
+    elTab.innerHTML = Array.from({length:TOTAL}, (_,i)=>
+      `<i class="${i<k ? 'cheio' : ''}"></i>`).join('');
+
+    const notas = [];
+    if(!divide){
+      notas.push(`O ${d} não é divisor de 24: para fazer ${d} partes iguais tinhas de partir quadradinhos ao meio. Com quadradinhos inteiros, não dá.`);
+    } else {
+      if(n === d) notas.push('Levaste todas as partes — é a tablete inteira. Sempre que o de cima é igual ao de baixo, a fração vale 1.');
+      const g = mdc(n, d);
+      if(g > 1 && n !== d) notas.push(`${n} em ${d} é exatamente a mesma parte que ${frac(n/g, d/g)} — mesmo chocolate, cortado em pedaços maiores.`);
+      if((d & (d-1)) === 0) notas.push(`O ${d} é uma potência de 2 (${d === 2 ? '2¹' : d === 4 ? '2²' : '2³'}): chegas a estas partes só dobrando a tablete ao meio.`);
+    }
+
+    elRes.innerHTML =
+      `<div class="conta">${frac(n,d)} de 24 quadradinhos = <b>${divide ? k : '?'}</b> quadradinhos</div>` +
+      (notas.length ? `<div class="nota">${notas.join(' ')}</div>` : '');
+
+    lab.querySelectorAll('#fr-dens .chip-pot').forEach(b=>
+      b.setAttribute('aria-pressed', String(+b.dataset.d === d)));
+    lab.querySelectorAll('#fr-nums .chip-pot').forEach(b=>
+      b.setAttribute('aria-pressed', String(+b.dataset.n === n)));
+    if(animar){ reagir(elRes); reagir(elTab); }
+  }
+
+  lab.addEventListener('click', (e)=>{
+    const b = e.target.closest('.chip-pot');
+    if(!b) return;
+    if(b.parentElement.id === 'fr-dens'){
+      d = +b.dataset.d;
+      if(n > d) n = d;
+      chipsNum();
+    } else {
+      n = +b.dataset.n;
+    }
+    reagir(b);
+    atualizar(true);
+  });
+
+  chipsNum();
+  atualizar(false);
+}
+
 new QRCode(document.getElementById('qr-capa'), {
   text: 'https://www.jnvasconcelos.com/livro-matematica',
   width: 84, height: 84,
@@ -916,6 +1368,9 @@ renderIndice();
 renderGrelhaCrivo();
 renderPotencias();
 renderMultiplosDivisores();
+renderConjuntos();
+renderTabletesDemo();
+renderFracoesLab();
 </script>
 </body>
 </html>
