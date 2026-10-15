@@ -43,5 +43,12 @@ window.TEMAS = [
     emoji: "🍫",
     resumo: "Uma tablete de 24 quadradinhos mostra o que uma fração manda fazer — e porque é que, às vezes, é um número inteiro disfarçado.",
     dataAdicionado: "9 de outubro de 2026"
+  },
+  {
+    id: "contas-com-fracoes",
+    titulo: "Contas com frações",
+    emoji: "➗",
+    resumo: "Somar, tirar, multiplicar e dividir pedaços de chocolate — e porque é que dividir é só multiplicar com a fração virada ao contrário.",
+    dataAdicionado: "15 de outubro de 2026"
   }
 ];
